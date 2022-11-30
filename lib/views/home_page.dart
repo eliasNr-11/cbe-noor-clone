@@ -2,6 +2,7 @@ import 'package:cbe_noor_clone/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,10 +10,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<List> btns = [
-      ['Transfer', Icons.sync],
-      ['People', Icons.people],
-      ['Utilities', Icons.clean_hands],
-      ['Top Up', Icons.aod_rounded],
+      [AppLocalizations.of(context)!.transfer, Icons.sync],
+      [AppLocalizations.of(context)!.peopel, Icons.people],
+      [AppLocalizations.of(context)!.utilities, Icons.clean_hands],
+      [AppLocalizations.of(context)!.topUp, Icons.aod_rounded],
     ];
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: 10.h),
           Text(
-            'Services',
+            AppLocalizations.of(context)!.services,
             style: TextStyle(fontSize: 18.sp, color: primaryColor),
           ),
           Expanded(
@@ -81,6 +82,7 @@ class _BalanceCardState extends State<BalanceCard> {
   bool _isVisible = false;
   @override
   Widget build(BuildContext context) {
+    String locale = Localizations.localeOf(context).languageCode;
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 240.h,
@@ -97,7 +99,7 @@ class _BalanceCardState extends State<BalanceCard> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              "Balance",
+              AppLocalizations.of(context)!.balance,
               style: TextStyle(fontSize: 18.sp, color: Colors.white),
             ),
             Padding(
@@ -106,7 +108,7 @@ class _BalanceCardState extends State<BalanceCard> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '${_isVisible ? '65,000' : '*****'} Birr',
+                    '${_isVisible ? '65,000' : '*****'} ${AppLocalizations.of(context)!.birr}',
                     style: TextStyle(
                       fontSize: 40.sp,
                       color: Colors.white,
@@ -135,7 +137,7 @@ class _BalanceCardState extends State<BalanceCard> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: Text(
-                DateFormat('MMM d, yyyy  h:mm:ss a').format(DateTime.now()),
+                DateFormat('MMM d, yyyy  h:mm:ss a', locale).format(DateTime.now()),
                 style: TextStyle(fontSize: 14.sp, color: Colors.white),
               ),
             )

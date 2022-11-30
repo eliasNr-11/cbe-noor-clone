@@ -4,6 +4,7 @@ import 'package:cbe_noor_clone/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountsPage extends StatelessWidget {
   const AccountsPage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class AccountsPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20.h),
               child: Text(
-                'Accounts',
+                AppLocalizations.of(context)!.accounts,
                 style: TextStyle(
                   fontSize: 18.sp,
                   color: primaryColor,
@@ -43,7 +44,7 @@ class AccountsPage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Recents',
+                  AppLocalizations.of(context)!.recents,
                   style: TextStyle(
                     fontSize: 18.sp,
                     color: primaryColor,
@@ -69,6 +70,7 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String locale = Localizations.localeOf(context).languageCode;
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -104,7 +106,7 @@ class TransactionList extends StatelessWidget {
                       ),
               ),
               title: Text(
-                transactions[index].isWithdraw ? 'Withdrawal' : 'Deposit',
+                transactions[index].isWithdraw ? AppLocalizations.of(context)!.withdrawal : AppLocalizations.of(context)!.deposit,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16.sp,
@@ -112,7 +114,7 @@ class TransactionList extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                DateFormat('MMM d, yyyy').format(transactions[index].transDate),
+                DateFormat('MMM d, yyyy', locale).format(transactions[index].transDate),
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
