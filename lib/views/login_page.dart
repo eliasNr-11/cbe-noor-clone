@@ -1,8 +1,10 @@
 import 'package:cbe_noor_clone/constants.dart';
+import 'package:cbe_noor_clone/main.dart';
 import 'package:cbe_noor_clone/views/main_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -15,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final pinController = TextEditingController();
 
   bool _validate = false;
+  bool _isEn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +30,19 @@ class _LoginPageState extends State<LoginPage> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  _isEn = !_isEn;
+                });
+                MyApp.setLocale(context, _isEn);
+              },
               style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100.r)),
                   fixedSize: Size(55.r, 35.r),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   minimumSize: Size.zero),
-              child: const Text('አማ'),
+              child: Text(!_isEn ? 'EN' : 'አማ'),
             ),
           ),
         ],
@@ -69,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: EdgeInsets.symmetric(vertical: 10.h),
                           child: Text(
-                            'Welcome!',
+                            AppLocalizations.of(context)!.welcome,
                             style: TextStyle(
                                 color: primaryColor,
                                 fontSize: 24.sp,
@@ -77,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Text(
-                          'CBE NOOR',
+                          AppLocalizations.of(context)!.cbeNoor,
                           style: TextStyle(color: primaryColor, fontSize: 18.sp),
                         ),
                       ],
@@ -87,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: EdgeInsets.only(top: 30.h),
                           child: Text(
-                            'PIN',
+                            AppLocalizations.of(context)!.pin,
                             style: TextStyle(color: primaryColor),
                           ),
                         ),
@@ -144,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: EdgeInsets.only(bottom: 60.h, top: 40.h),
                       child: Text(
-                        'Copyright © Commercial Bank of Ethiopia',
+                        AppLocalizations.of(context)!.copyright,
                         style: TextStyle(fontSize: 16.sp, color: primaryColor),
                       ),
                     )

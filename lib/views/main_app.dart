@@ -1,4 +1,5 @@
 import 'package:cbe_noor_clone/constants.dart';
+import 'package:cbe_noor_clone/main.dart';
 import 'package:cbe_noor_clone/views/accounts_page.dart';
 import 'package:cbe_noor_clone/views/home_page.dart';
 import 'package:cbe_noor_clone/views/login_page.dart';
@@ -6,6 +7,7 @@ import 'package:cbe_noor_clone/views/recents_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({Key? key}) : super(key: key);
@@ -25,6 +27,7 @@ class _MainAppState extends State<MainApp> {
   ];
 
   bool _switch = true;
+  bool _isEn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,7 @@ class _MainAppState extends State<MainApp> {
               borderRadius: BorderRadius.circular(50.r),
               splashColor: primaryColor.withOpacity(0.2),
               highlightColor: primaryColor.withOpacity(0.1),
-              onTap: (){
+              onTap: () {
                 if (_selectedIndex != 0) {
                   setState(() {
                     _selectedIndex = 0;
@@ -79,14 +82,19 @@ class _MainAppState extends State<MainApp> {
             elevation: 0,
             actions: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _isEn = !_isEn;
+                  });
+                  MyApp.setLocale(context, _isEn);
+                },
                 style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100.r)),
                     fixedSize: Size(55.r, 35.r),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     minimumSize: Size.zero),
-                child: const Text('አማ'),
+                child: Text(!_isEn ? 'EN' : 'አማ'),
               ),
               TextButton(
                 onPressed: () {},
@@ -125,7 +133,7 @@ class _MainAppState extends State<MainApp> {
                     size: 28.sp,
                   ),
                   title: Text(
-                    'Change PIN',
+                    AppLocalizations.of(context)!.changePin,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   onTap: () {
@@ -139,7 +147,7 @@ class _MainAppState extends State<MainApp> {
                     size: 28.sp,
                   ),
                   title: Text(
-                    'Unsbuscibe',
+                    AppLocalizations.of(context)!.unsubscribe,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   onTap: () {
@@ -153,7 +161,7 @@ class _MainAppState extends State<MainApp> {
                     size: 28.sp,
                   ),
                   title: Text(
-                    'Logout',
+                    AppLocalizations.of(context)!.logout,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   onTap: () {
@@ -168,7 +176,7 @@ class _MainAppState extends State<MainApp> {
                     size: 28.sp,
                   ),
                   title: Text(
-                    'About',
+                    AppLocalizations.of(context)!.about,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   onTap: () {
@@ -182,7 +190,7 @@ class _MainAppState extends State<MainApp> {
                     size: 28.sp,
                   ),
                   title: Text(
-                    'Rate this app',
+                    AppLocalizations.of(context)!.rateThisApp,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   onTap: () {
@@ -196,7 +204,7 @@ class _MainAppState extends State<MainApp> {
                     size: 28.sp,
                   ),
                   title: Text(
-                    'CBE NOOR',
+                    AppLocalizations.of(context)!.cbeNoor,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   trailing: Switch(
@@ -218,11 +226,11 @@ class _MainAppState extends State<MainApp> {
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'Home'),
+              BottomNavigationBarItem(icon: const Icon(Icons.apps), label: AppLocalizations.of(context)!.home),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.account_balance), label: 'Accounts'),
+                  icon: const Icon(Icons.account_balance), label: AppLocalizations.of(context)!.accounts),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.history), label: 'Recents'),
+                  icon: const Icon(Icons.history), label: AppLocalizations.of(context)!.recents),
             ],
             selectedFontSize: 16.sp,
             unselectedFontSize: 14.sp,

@@ -2,6 +2,7 @@ import 'package:cbe_noor_clone/constants.dart';
 import 'package:cbe_noor_clone/views/accounts_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RecentsPage extends StatelessWidget {
   const RecentsPage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class RecentsPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20.h),
               child: Text(
-                'Recent transactions',
+                AppLocalizations.of(context)!.recentTransactions,
                 style: TextStyle(
                   fontSize: 18.sp,
                   color: primaryColor,
