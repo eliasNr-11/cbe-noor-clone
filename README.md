@@ -10,4 +10,4 @@ This is a flutter clone of CBE NOOR app with Amharic localization
 ## Screenshots
 
 
-![cbe-noor-clone-artboard](https://user-images.githubusercontent.com/78848952/205022689-636a5abc-25af-4d39-b1a8-21620ecbea69.jpg)
+![cbe-noor-clone-artboardx2](https://user-images.githubusercontent.com/78848952/205039262-85177ca7-9431-43c5-b63b-f87516ad36dd.jpg)
