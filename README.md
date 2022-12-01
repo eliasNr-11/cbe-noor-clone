@@ -1,16 +1,13 @@
-# cbe_noor_clone
 
-A new Flutter project.
+# CBE NOOR CLONE x FLUTTER
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+This is a flutter clone of CBE NOOR app with Amharic localization
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center"><img src="https://user-images.githubusercontent.com/78848952/205026739-9f74657c-fa70-46f0-9ce5-031cb5a3edeb.svg" width="100" height="40"></p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
+
+![cbe-noor-clone-artboard](https://user-images.githubusercontent.com/78848952/205022689-636a5abc-25af-4d39-b1a8-21620ecbea69.jpg)
